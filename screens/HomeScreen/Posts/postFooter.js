@@ -1,8 +1,7 @@
 import React from 'react';
 import { Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import style from "./style";
-import {postFooterIcons} from "../../DATA/POSTS/FooterData";
-import { color } from 'react-native-elements/dist/helpers';
+import {postFooterIcons} from "../../../DATA/POSTS/FooterData";
 
 export default function PostFooter({post}) {
     return (
@@ -54,7 +53,11 @@ const Captions = ({post}) => (
 const CommentSection = ({post})=>(
     <View style ={{marginTop: 6}}>
         {
-            post.comments.length && (
+            // here is very awesome thing is happens
+            //  !! is used here
+            //  0 -> false
+            //  1 -> true
+            !!post.comments.length && (
                 <Text style={{color: 'gray'}}>
                 View
                 {post.comments.length > 1 ? ' all ' : ' '} 
@@ -71,10 +74,11 @@ const Comments = ({post})=>(
     <View style ={{marginTop: 8, marginLeft: 6}}>{
         post.comments.map((comment, index)=>(
             <View key={index}>
-                <Text style={{color: '#fff'}}>
+                <Text style={{color: '#fff', marginTop : 5}}>
                     <Text style ={{fontWeight: '600'}}>
-                        {comment.comment}
+                        {comment.user} : 
                     </Text>
+                    {comment.comment}
                 </Text>
             </View>
         ))

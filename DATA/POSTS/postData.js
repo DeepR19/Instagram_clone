@@ -1,4 +1,4 @@
-import { Users } from "../../screens/Stories/user";
+import { Users } from "../../screens/HomeScreen/Stories/user";
 
 export const POSTS = [
     {
