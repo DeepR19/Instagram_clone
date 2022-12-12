@@ -8,16 +8,18 @@ import BottomTabs from './Bottom_Tab/Bottom';
 import { POSTS } from '../../DATA/POSTS/postData';
 import { bottomIcon } from '../../DATA/Icons/BottomIcon';
 
-export default function MainHome() {
+export default function MainHome({navigation}) {
   return (
     <View style= {styles.body}>
-      <MAIN/>
+      <MAIN navigation={navigation}/>
       <Stories/>
+
       <ScrollView>
         {POSTS.map((post, index)=>(
           <POST post={post} key={index}/>
         ))}
       </ScrollView>
+
       <BottomTabs icons = {bottomIcon}/>
       
       <StatusBar style='auto'/>

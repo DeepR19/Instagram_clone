@@ -1,14 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
-import styles from "./screens/HomeScreen/Header/Style";
-import MainHome from './screens/HomeScreen/Home';
+import * as React from 'react'
+import SignedInStack from './navigation';
 
 export default function App() {
   return (
-    <View style= {styles.body}>
-      <MainHome/>
-      
-      <StatusBar style='auto'/>
-    </View>
+    <SignedInStack/>
   );
 }
