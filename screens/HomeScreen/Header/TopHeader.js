@@ -1,8 +1,20 @@
 import React from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import style from "./Style";
+import { firebase } from '../../../firebase';
+
+const handleSignout = async ()=>{
+  try {
+    await firebase.auth().signOut()
+    console.log("signed out successfully")
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export default function MAIN({navigation}) {
+
+
   return (
     <View style={style.mainHeaderContainer}>
       <TouchableOpacity>

@@ -27,7 +27,9 @@ const SignupScreen = ({navigation}) => {
         console.log("registratoin on firebase is done!!")
 
         // make collection in fireStore6
-        db.collection('users').add({
+        db.collection('users')
+        .doc(authUser.user.email)
+        .set({
           owner_uid: authUser.user.uid,
           username,
           email: authUser.user.email,
