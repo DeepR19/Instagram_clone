@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import { Formik } from 'formik'
 import { Divider, Button } from 'react-native-elements'
 import validURL from 'valid-url'
-import { firebase } from '../../firebase'
+import { firebase,db } from '../../firebase'
 
 const uploadPostSchema = Yup.object().shape({
     imageUrl : Yup.string().url().required('A URL is required'),
@@ -44,9 +44,10 @@ export default function FormikPostUploader({navigation}) {
                                     user: currentLoggedInUser.username,
                                     profile_pic: currentLoggedInUser.profile_pic,
                                     owner_uid: firebase.auth().currentUser.uid,
+                                    owner_email: firebase.auth().currentUser.email,
                                     caption: caption,
                                     createdAt: firebase.fireStore.FieldValue.serverTimestamp(),
-                                    likes: 0,
+                                    // likes: 0,
                                     likes_by_users: [],
                                     comments: []
                                 })

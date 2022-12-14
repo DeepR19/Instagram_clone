@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, TextInput,StyleSheet, Pressable, TouchableOpacity, Alert } from 'react-native'
 import React, {useState} from 'react'
 import { Formik } from 'formik'
 import * as Yup from "yup"

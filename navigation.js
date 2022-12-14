@@ -1,47 +1,26 @@
-import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
-import {NavigationContainer} from "@react-navigation/native"
+import {createAppContainer} from "react-navigation"
+
 import MainHome from "./screens/HomeScreen/Home"
 import NewPost from "./screens/NewPost/NewPost"
 import LoginScreen from './screens/Login/Login'
 import SignupScreen from './screens/Signup/Signup'
 
-
-const Stack = createStackNavigator()
-
-const screenOptions = {
-    headerShown: false
+const screens = {
+  Home:{
+    screen: MainHome
+  },
+  Login:{
+    screen: LoginScreen
+  },
+  Signup:{
+    screen: SignupScreen
+  },
+  NewPost:{
+    screen: NewPost
+  },
 }
 
-// if user is logged in 
-export const SignedInStack = () => {
-  return (
+const Stack = createStackNavigator(screens)
 
-    <NavigationContainer>
-        <Stack.Navigator
-            initialRouteName = "MainScreen"
-            screenOptions = {screenOptions}
-        >
-            <Stack.Screen name="MainScreen" component={MainHome}/>
-            <Stack.Screen name="NewPost" component={NewPost}/>
-        </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
-
-
-// if user is not logged in 
-export const SignedOutStack = () => {
-  return (
-
-    <NavigationContainer>
-        <Stack.Navigator
-            initialRouteName = "LoginScreen"
-            screenOptions = {screenOptions}
-        >
-            <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-            <Stack.Screen name="SignupScreen" component={SignupScreen}/>
-        </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
+export default createAppContainer(Stack)

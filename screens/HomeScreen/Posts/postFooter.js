@@ -17,7 +17,7 @@ export default function PostFooter({post}) {
             </View>
 
             <View>
-                
+                <Likes post={post}/>
                 <Captions post= {post}/>
                 <CommentSection post={post}/>
                 <Comments post={post} />
@@ -34,12 +34,18 @@ const Icon = ({imgStyle, imgURL})=>(
     </TouchableOpacity>
 )
 
+// Likes of posts
+const Likes = ({post})=>{
+    <View style = {{flexDirection: 'row', marginTop: 4}}>
+        <Text style = {{color: "#fff", fontWeight: '600'}}>
+            {post.likes_by_users.length.toLocalString('en')} likes
+        </Text>
+    </View>
+}
+
 // captions
 const Captions = ({post}) => (
     <>
-        {/* show number of likes */}
-        <Text style={{color: '#fff'}}>{post.likes} likes</Text>
-
         {/* show caption of the user */}
         <Text style={{marginTop: 5, color: '#fff'}}>
 

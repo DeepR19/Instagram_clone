@@ -17,7 +17,7 @@ export default function MAIN({navigation}) {
 
   return (
     <View style={style.mainHeaderContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleSignout}>
         <View style={style.mainHeader}>
           <Text style={{ fontSize: 23, fontFamily: 'sans-serif' ,color: 'white' }}>InstaGram</Text>
         </View>
