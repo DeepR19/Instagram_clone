@@ -34,7 +34,7 @@ export default function BottomTabs ({icons}){
             <View style= {style.container}>
                 {
                     icons.map((icon, index)=>(
-                        <Icon key={index} icon = {icon}/>
+                            <Icon key={index} icon = {icon}/>
                         ))
                     }
             </View>

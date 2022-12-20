@@ -11,13 +11,13 @@ import { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 
 export default function MainHome({navigation}) {
-  const [posts, setPosts] = useState([])
+  // const [posts, setPosts] = useState([])
 
-  useEffect(()=>{
-    db.collectionGroup('posts').onSnapshot(snapshot=>{
-      setPosts(snapshot.docs.map(doc => doc.data()))
-    })
-  }, [])
+  // useEffect(()=>{
+  //   db.collectionGroup('posts').onSnapshot(snapshot=>{
+  //     setPosts(snapshot.docs.map(doc => doc.data()))
+  //   })
+  // }, [])
 
   return (
     <View style= {styles.body}>
@@ -25,7 +25,7 @@ export default function MainHome({navigation}) {
       <Stories/>
 
       <ScrollView>
-        {posts.map((post, index)=>(
+        {POSTS.map((post, index)=>(
           <POST post={post} key={index}/>
         ))}
       </ScrollView>

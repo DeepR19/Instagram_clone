@@ -9,15 +9,17 @@ export default function PostFooter({post}) {
             
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={style.leftFooterIconsContainer}>
-                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageURL}/>
-                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageURL}/>
-                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageURL}/>
+                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageUrl}/>
+                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[1].imageUrl}/>
+                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[2].imageUrl}/>
                 </View>
-                <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageURL}/>
+                <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[3].imageUrl}/>
             </View>
 
             <View>
-                <Likes post={post}/>
+                <Text style = {{color: "#fff", fontWeight: '600'}}>
+                    23 likes
+                </Text>
                 <Captions post= {post}/>
                 <CommentSection post={post}/>
                 <Comments post={post} />
@@ -38,7 +40,7 @@ const Icon = ({imgStyle, imgURL})=>(
 const Likes = ({post})=>{
     <View style = {{flexDirection: 'row', marginTop: 4}}>
         <Text style = {{color: "#fff", fontWeight: '600'}}>
-            {post.likes_by_users.length.toLocalString('en')} likes
+            23 likes
         </Text>
     </View>
 }
