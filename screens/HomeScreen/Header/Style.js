@@ -6,6 +6,10 @@ export default StyleSheet.create({
         // alignItems: 'center',
         backgroundColor: '#000',
     },
+    headerImage:{
+        height:45,
+        width: 140
+    },
     mainHeaderContainer: {
         color : "#fff",
         backgroundColor: "#000",

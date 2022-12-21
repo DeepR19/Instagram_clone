@@ -19,7 +19,10 @@ export default function MAIN({navigation}) {
     <View style={style.mainHeaderContainer}>
       <TouchableOpacity onPress={handleSignout}>
         <View style={style.mainHeader}>
-          <Text style={{ fontSize: 23, fontFamily: 'sans-serif' ,color: 'white' }}>InstaGram</Text>
+          <Image
+            source={require("../../../assets/headerImage.png")}
+              style= {style.headerImage}
+          />
         </View>
       </TouchableOpacity>
 
