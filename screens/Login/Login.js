@@ -2,14 +2,25 @@ import { View, Text, TextInput,StyleSheet, Button, Image, Pressable, TouchableOp
 import React, {useState} from 'react'
 import { Formik } from 'formik'
 import * as yup from "yup"
-import { Validator } from 'email-validator'  // install thsi package  
-import {db, firebase} from '../../firebase'
+import {firebase} from '../../firebase'
 
 
 const INSTAGRAM_LOGO =
   'https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png'
 
 const LoginScreen = ({navigation}) => {
+
+    const onLogin = async (email, password) => {
+        try {
+          await firebase.auth().signInWithEmailAndPassword( email, password)
+          alert('Firebase Login Successful', email, password)
+        } catch (error) {
+          // Platform.OS != 'web' ? Alert.alert(error.message) : alert(error.message)
+          alert(error)
+        }
+      }
+
+      
   return (
     <>
       <View style={styles.container}> 
@@ -22,10 +33,12 @@ const LoginScreen = ({navigation}) => {
 
       <Formik 
           initialValues={{email: '',password: ''}}
-          onSubmit={values=>{
-            // onSignup(values.email, values.password, values.username)
-            values => Alert.alert(JSON.stringify(values))
-          }}
+          onSubmit={values => {
+                onLogin(values.email, values.password)
+                // navigation.navigate('Home')
+            }
+            
+          }
           validationSchema={yup.object().shape({
             email: yup
               .string()
@@ -66,8 +79,8 @@ const LoginScreen = ({navigation}) => {
                           value={values.email}
                       />
                         {touched.email && errors.email &&
-              <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.email}</Text>
-            }
+                          <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.email}</Text>
+                        }
                     </View>
 
 
@@ -78,7 +91,7 @@ const LoginScreen = ({navigation}) => {
                     }]}> 
                       
 
-<TextInput
+            <TextInput
               value={values.password}
               // style={inputStyle}
               onChangeText={handleChange('password')}
@@ -96,7 +109,6 @@ const LoginScreen = ({navigation}) => {
                       <Text style={{color: '#6bb0f5'}}>Forgot Password? </Text>
                     </View>
                   </View>
-                  {console.log(isValid)}
 
                 
                 <Button
@@ -108,7 +120,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.signupContainer}>
                   <Text>Don't have an account?</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=>navigation.navigate("Signup")}>
                     <Text style={{color: "#6bb0f5"}} >click here</Text>
                   </TouchableOpacity>
                 </View>

@@ -24,7 +24,7 @@ export default function MAIN({navigation}) {
       </TouchableOpacity>
 
       <View style={style.iconsContainer}>
-      <TouchableOpacity onPress={()=>navigation.push("NewPost")}>
+      <TouchableOpacity onPress={()=>navigation.navigate("NewPost")}>
        <Image
           source={{
             uri: "https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png"

@@ -1,23 +1,37 @@
-import {createStackNavigator} from 'react-navigation-stack'
-import {createAppContainer} from "react-navigation"
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import MainHome from "./screens/HomeScreen/Home"
+import LoginScreen from './screens/Login/Login'
 import NewPost from "./screens/NewPost/NewPost"
-import {Login} from './login'
-import {Signup} from './Signup'
-import FormikPostUploader from './screens/NewPost/formikPostUploader'
 import SignupScreen from './screens/Signup/Signup'
 
-const screens = {
-  Login:{
-    screen: Signup
-  },
-  Signup:{
-    screen: SignupScreen
-  },
-  
+
+const Stack = createNativeStackNavigator()
+
+export const SignedOutStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login' screenOptions={{
+          headerShown: false
+        }}>
+        <Stack.Screen name="Login" component={LoginScreen}/>
+        <Stack.Screen name="Signup" component={SignupScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-const Stack = createStackNavigator(screens)
+export const SignedInStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{
+          headerShown: false
+        }}>
+        <Stack.Screen name="Home" component={MainHome} />
+        <Stack.Screen name="NewPost" component={NewPost}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
-export default createAppContainer(Stack)

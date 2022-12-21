@@ -8,16 +8,8 @@ import {db, firebase} from '../../firebase'
 
 const INSTAGRAM_LOGO =
   'https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png'
-// const SignupSchema = Yup.object().shape({
-//   email: Yup.string().email('Invalid email').required('Required'),
-//   username: Yup.string().email().required().min(6,
-//     'An username is required...'
-//   ),
-//   password: Yup.string().required().min(8, "Your password is of atleast 8 characters")
-// })
-const SignupScreen = ({navigation}) => {
-  
 
+const SignupScreen = ({navigation}) => {
 
   // signup using firebase
   const onSignup = async (email, password, username)=>{
@@ -159,7 +151,7 @@ const SignupScreen = ({navigation}) => {
 
                 <View style={styles.signupContainer}>
                   <Text>Already have an account?</Text>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
                     <Text style={{color: "#6bb0f5"}} >click here</Text>
                   </TouchableOpacity>
                 </View>

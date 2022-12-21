@@ -103,6 +103,7 @@ export default function FormikPostUploader({navigation}) {
                     <View style={{flex: 1, marginLeft: 10}}>
 
                     <TextInput 
+                            style={{color: '#fff', fontSize: 16}}
                           placeholderTextColor="#444"
                           placeholder="Phone number , username or email"
                           autoCapatilize = "none"
@@ -119,7 +120,7 @@ export default function FormikPostUploader({navigation}) {
                 <Divider width = {1} orientation='vertical' style={{marginTop: 15}}/>
                 <TextInput
                     // onChangeText={e => setThumbnailURL(e)}
-                    style={{color: '#fff', fontSize: 18 }}
+                    style={{color: '#fff', fontSize: 16 , margin:20}}
                     placeholder='Enter Image URL'
                     placeholderTextColor='gray'
                     onBlur={handleBlur('imageUrl')}
@@ -128,7 +129,7 @@ export default function FormikPostUploader({navigation}) {
                 />
                 {touched.imageUrl && errors.imageUrl &&
                     <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.imageUrl}</Text>
-                    }
+                } 
 
                 <Button onPress={handleSubmit} title= "Share"  disabled={!isValid}/>
             </>

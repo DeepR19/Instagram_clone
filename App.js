@@ -8,11 +8,12 @@ import NewPost from './screens/NewPost/NewPost';
 import LoginScreen from "./screens/Login/Login"
 import SignupScreen from './screens/Signup/Signup';
 
-// const INSTAGRAM_LOGO =
-  // 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/640px-Instagram_icon.png'
+import Navigation from './navigation';
+import AuthNavigation from './authNavigation';
+
 export default function App() {
   return (
-    <SignupScreen/>
+    <AuthNavigation/>
   
   );
 }
