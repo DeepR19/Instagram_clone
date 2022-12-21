@@ -43,9 +43,7 @@ const SignupScreen = ({navigation}) => {
     <>
       <View style={styles.container}> 
       <View style={{ alignItems: "center" }}>
-        <Image source={{
-          uri: INSTAGRAM_LOGO
-        }}
+        <Image source={require("../../assets/headerImage.png")}
         style = {{width: 100, height: 100}}/>
       </View>
 
