@@ -7,7 +7,7 @@ export default function PostHeader({post}) {
         <View style={{margin: 5,flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center', paddingRight: 20}}>
             <View style={{flexDirection:'row', alignItems: 'center'}}>
                 <Image
-                    source={{uri: post.profile_picture}}
+                    source={{uri: post.profile_pic}}
                     style={style.profile_pic}
                 />
                 <Text style={{color: 'white', marginLeft: 10, fontWeight: '400'}}>{post.user}</Text>

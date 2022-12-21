@@ -2,14 +2,23 @@ import React from 'react';
 import { Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import style from "./style";
 import {postFooterIcons} from "../../../DATA/POSTS/FooterData";
+import {firebase} from "../../../firebase"
 
-export default function PostFooter({post}) {
+export default function PostFooter({handleLike, post}) {
     return (
         <View>
             
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <View style={style.leftFooterIconsContainer}>
-                    <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[0].imageUrl}/>
+                    <TouchableOpacity onPress={()=>handleLike(post)}>
+                        <Image style={style.footerIcon} 
+                            source={{uri : post.likes_by_users
+                                            .includes(firebase.auth().currentUser.email) ?
+                                                postFooterIcons[0].likedImageUrl
+                                            :   postFooterIcons[0].imageUrl}}
+                        />
+                    </TouchableOpacity>
+
                     <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[1].imageUrl}/>
                     <Icon imgStyle={style.footerIcon} imgURL = {postFooterIcons[2].imageUrl}/>
                 </View>
@@ -17,8 +26,9 @@ export default function PostFooter({post}) {
             </View>
 
             <View>
+                {/* <Likes post={post}/> */}
                 <Text style = {{color: "#fff", fontWeight: '600'}}>
-                    23 likes
+                    {post.likes_by_users.length} likes
                 </Text>
                 <Captions post= {post}/>
                 <CommentSection post={post}/>
@@ -40,7 +50,8 @@ const Icon = ({imgStyle, imgURL})=>(
 const Likes = ({post})=>{
     <View style = {{flexDirection: 'row', marginTop: 4}}>
         <Text style = {{color: "#fff", fontWeight: '600'}}>
-            23 likes
+            {post.likes} likes
+            ahfjkdskf
         </Text>
     </View>
 }

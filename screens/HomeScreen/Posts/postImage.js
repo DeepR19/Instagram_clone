@@ -8,12 +8,10 @@ export default function PostImage({post}) {
             style={{
                 width: '100%',
                 height: 450
-            }}
-        >
-
+            }}>
             <Image
                 source={{
-                    uri: post.imageURL
+                    uri:post.imageUrl
                 }}
                 style={{
                     height: '100%',
